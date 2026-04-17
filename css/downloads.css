@@ -1,0 +1,76 @@
+.container-downloads {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.btn-voltar {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color: #00ff7f;
+    text-decoration: none;
+    font-family: 'Press Start 2P';
+    font-size: 0.7rem;
+}
+
+.search-bar input {
+    width: 100%;
+    background: #000;
+    border: 1px solid #00d9ff;
+    padding: 15px;
+    color: #00d9ff;
+    font-family: 'Press Start 2P';
+    font-size: 0.6rem;
+    margin-bottom: 30px;
+    outline: none;
+}
+
+.download-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(0, 217, 255, 0.05);
+    border-left: 5px solid #00d9ff;
+    padding: 20px;
+    margin-bottom: 15px;
+    transition: 0.3s;
+}
+
+.download-item:hover {
+    background: rgba(0, 217, 255, 0.15);
+    transform: translateX(10px);
+}
+
+.file-info {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.file-info h3 {
+    font-family: 'Press Start 2P';
+    font-size: 0.7rem;
+    color: #fff;
+    margin: 0;
+}
+
+.file-info p {
+    font-size: 0.6rem;
+    color: #aaa;
+    margin: 5px 0 0 0;
+}
+
+.btn-dl {
+    background: #00d9ff;
+    color: #000;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-family: 'Press Start 2P';
+    font-size: 0.6rem;
+    font-weight: bold;
+}
+
+.btn-dl:hover {
+    box-shadow: 0 0 15px #00d9ff;
+}

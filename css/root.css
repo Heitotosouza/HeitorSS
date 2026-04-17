@@ -34,3 +34,51 @@
         transform: translateY(0);
     }
 }
+
+@keyframes floating {
+
+    0%,
+    100% {
+        transform: translateY(0) scale(1.2);
+    }
+
+    50% {
+        transform: translateY(-10px) scale(1.2);
+    }
+}
+
+@keyframes scan {
+    0% {
+        top: -100%;
+    }
+
+    100% {
+        top: 100%;
+    }
+}
+
+@keyframes glitch-anim {
+    0% {
+        transform: translate(0);
+    }
+
+    20% {
+        transform: translate(-2px, 2px);
+    }
+
+    40% {
+        transform: translate(-2px, -2px);
+    }
+
+    60% {
+        transform: translate(2px, 2px);
+    }
+
+    80% {
+        transform: translate(2px, -2px);
+    }
+
+    100% {
+        transform: translate(0);
+    }
+}
