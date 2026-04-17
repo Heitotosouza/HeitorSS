@@ -1,6 +1,3 @@
-/* ============================================================
-   HERO.CSS - VERSÃO FINAL (SEM ZOOM, SÓ SPOTLIGHT E ÍCONE)
-   ============================================================ */
 
 .grid-projetos {
     display: grid;
@@ -20,10 +17,8 @@
     flex-direction: column;
     justify-content: flex-end;
     transition: border-color 0.3s, box-shadow 0.3s;
-    /* Removemos qualquer animação de scale aqui */
 }
 
-/* SPOTLIGHT (A LUZ VERDE) */
 .projeto-card::before {
     content: "";
     position: absolute;
@@ -46,7 +41,6 @@
     box-shadow: 0 0 20px rgba(0, 255, 127, 0.2);
 }
 
-/* IMAGEM DE FUNDO - SEM ZOOM */
 .card-image {
     position: absolute;
     inset: 0;
@@ -54,7 +48,6 @@
     background-position: center;
     filter: grayscale(100%) brightness(0.1);
     transition: filter 0.5s;
-    /* Apenas filtro, sem transform scale */
     z-index: 1;
 }
 
@@ -62,7 +55,6 @@
     filter: grayscale(0%) brightness(0.4);
 }
 
-/* GRADIENTE PARA LEITURA */
 .projeto-card::after {
     content: '';
     position: absolute;
@@ -74,7 +66,6 @@
     pointer-events: none;
 }
 
-/* CONTEÚDO */
 .card-content {
     position: relative;
     z-index: 3;
@@ -87,7 +78,6 @@
     transform: translateY(0) !important;
 }
 
-/* TÍTULO E ÍCONE */
 .projeto-card h3 {
     margin: 15px 0;
     font-size: 1.2rem;
@@ -99,14 +89,12 @@
     gap: 10px;
 }
 
-/* APENAS O ÍCONE GIRA E CRESCE */
 .icon-animado {
     display: inline-block;
     transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     will-change: transform;
 }
 
-/* TAGS */
 .tag {
     font-size: 0.6rem;
     background: #00ff7f;
@@ -116,7 +104,6 @@
     border-radius: 3px;
 }
 
-/* DETALHAMENTO */
 .detalhamento {
     opacity: 0;
     transition: opacity 0.4s ease;
@@ -140,7 +127,6 @@
     margin-bottom: 15px;
 }
 
-/* ANIMAÇÃO DOS ITENS DA LISTA */
 .projeto-card:hover .detalhamento li {
     animation: slideIn 0.4s ease forwards;
     opacity: 0;
@@ -170,7 +156,6 @@
     }
 }
 
-/* BOTÃO VIEW */
 .btn-view {
     display: block;
     text-align: center;

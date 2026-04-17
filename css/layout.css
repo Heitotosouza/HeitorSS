@@ -1,5 +1,4 @@
-/* ===================== RESET E BASE ===================== */
-/* Garante que o navegador entenda que a tela tem 100% de altura */
+
 html,
 body {
     height: 100%;
@@ -10,28 +9,20 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    /* Ocupa no mínimo a altura da tela inteira */
-
-    /* Seus estilos de fundo */
     background: radial-gradient(circle at center, #001a1a, #000010, #000000);
     animation: pulse 6s infinite alternate;
     font-family: sans-serif;
 }
 
 main {
-    /* ESSA LINHA É A MAIS IMPORTANTE: */
     flex: 1 0 auto;
-
-    /* Garante que o conteúdo não fique colado no menu */
     padding-top: 100px;
     display: flex;
     flex-direction: column;
 }
 
-/* ===================== FOOTER ===================== */
 footer {
     flex-shrink: 0;
-    /* Impede o footer de "encolher" */
     width: 100%;
     background: rgba(0, 0, 0, 0.6);
     color: #00ffc8;
@@ -40,45 +31,32 @@ footer {
     backdrop-filter: blur(4px);
     z-index: 1000;
 }
-/* ===================== HEADER / NAVBAR ===================== */
+
 .header {
     position: relative;
     z-index: 1000;
-    /* Mantém o header acima do fundo e partículas */
 }
 
-/* Estilo da logo (nome do site) */
 .logo {
     text-decoration: none;
-    /* Remove sublinhado */
     font-family: 'Press Start 2P', sans-serif;
-    /* Fonte retrô estilo gamer */
     font-size: 2rem;
     color: #00ff7f;
-    /* Verde neon */
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-    /* Sombra para destaque */
     white-space: nowrap;
-    /* Evita quebra de linha */
     border-right: 2px solid #00ff7f;
-    /* Simula o cursor piscando */
     overflow: hidden;
     animation: blink 1s step-start infinite;
-    /* Faz o "cursor" piscar */
 }
 
-/* ===================== CANVAS DAS PARTÍCULAS ===================== */
 #particles {
     position: fixed;
-    /* Cobre toda a tela */
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
     z-index: 800;
-    /* Atrás do menu */
     pointer-events: none;
-    /* Não bloqueia cliques */
 }
 
 .title-retro {
@@ -97,7 +75,25 @@ footer {
     width: 100%;
     height: 100%;
     z-index: -1;
-    /* Joga para trás de tudo */
     pointer-events: none;
-    /* O mouse ignora o canvas */
+}
+
+.clima-top {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.7rem;
+    color: #00ff7f;
+    padding: 5px 15px;
+    background: rgba(0, 255, 127, 0.1);
+    border-radius: 20px;
+    border: 1px solid rgba(0, 255, 127, 0.3);
+    text-shadow: 0 0 5px rgba(0, 255, 127, 0.5);
+}
+
+#clima-icon {
+    width: 30px;
+    height: 30px;
+    filter: drop-shadow(0 0 5px #00ff7f);
 }

@@ -1,12 +1,10 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // --- 1. MENU HAMBÚRGUER ---
     const hamburguer = document.querySelector(".hamburguer");
     const nav = document.querySelector(".nav");
     if (hamburguer && nav) {
         hamburguer.addEventListener("click", () => nav.classList.toggle("active"));
     }
 
-    // --- 2. EFEITO MÁQUINA DE ESCREVER (LOGO) ---
     const logo = document.querySelector('.logo');
     if (logo) {
         const text = "HeitorSS";
