@@ -1,0 +1,25 @@
+/* Animação que faz o fundo "pulsar" entre tons diferentes */
+@keyframes pulse {
+    0% {
+        background: radial-gradient(circle at center, #001a1a, #000010, #000000);
+    }
+
+    100% {
+        background: radial-gradient(circle at center, #002b2b, #000020, #000000);
+    }
+}
+
+/* Animação do cursor piscando na logo */
+@keyframes blink {
+
+    0%,
+    50%,
+    100% {
+        border-color: #00ff7f;
+    }
+
+    25%,
+    75% {
+        border-color: transparent;
+    }
+}

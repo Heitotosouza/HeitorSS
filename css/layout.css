@@ -1,0 +1,76 @@
+/* ===================== RESET E BASE ===================== */
+html {
+    height: 100%;
+    /* Garante que o <html> ocupe toda a altura da tela */
+}
+
+body {
+    margin: 0;
+    /* Remove margens padrão do navegador */
+    font-family: sans-serif;
+    /* Define fonte padrão sem serifa */
+    min-height: 100vh;
+    /* Faz o body ocupar pelo menos toda a altura da tela */
+
+    /* Fundo com gradiente radial animado (efeito tecnológico) */
+    background: radial-gradient(circle at center, #001a1a, #000010, #000000);
+    animation: pulse 6s infinite alternate;
+    /* Animação suave do fundo */
+}
+
+main {
+    min-height: 100vh;
+    /* Faz o <main> ocupar toda a altura da tela */
+}
+
+/* ===================== HEADER / NAVBAR ===================== */
+.header {
+    position: relative;
+    z-index: 1000;
+    /* Mantém o header acima do fundo e partículas */
+}
+
+/* Estilo da logo (nome do site) */
+.logo {
+    text-decoration: none;
+    /* Remove sublinhado */
+    font-family: 'Press Start 2P', sans-serif;
+    /* Fonte retrô estilo gamer */
+    font-size: 2rem;
+    color: #00ff7f;
+    /* Verde neon */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    /* Sombra para destaque */
+    white-space: nowrap;
+    /* Evita quebra de linha */
+    border-right: 2px solid #00ff7f;
+    /* Simula o cursor piscando */
+    overflow: hidden;
+    animation: blink 1s step-start infinite;
+    /* Faz o "cursor" piscar */
+}
+
+/* ===================== CANVAS DAS PARTÍCULAS ===================== */
+#particles {
+    position: fixed;
+    /* Cobre toda a tela */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 800;
+    /* Atrás do menu */
+    pointer-events: none;
+    /* Não bloqueia cliques */
+}
+
+/* ===================== FOOTER ===================== */
+footer {
+    background: rgba(0, 0, 0, 0.4);
+    color: #00ffc8;
+    /* Verde ciano neon */
+    text-align: center;
+    padding: 15px 0;
+    font-size: 14px;
+    backdrop-filter: blur(4px);
+}

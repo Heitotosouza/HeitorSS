@@ -18,7 +18,13 @@
     <link rel="icon" href="icons/icon-192.png"> <!-- Ícone padrão do site -->
     <link rel="apple-touch-icon" href="icons/icon-512.png"> <!-- Ícone para iOS -->
 
-    <!-- CSS principal do site -->
+    <link rel="stylesheet" href="css/root.css">
+    
+    <link rel="stylesheet" href="css/layout.css">
+    
+    <link rel="stylesheet" href="css/menu.css">
+    <link rel="stylesheet" href="css/hero.css">
+    
     <link rel="stylesheet" href="css/style.css">
 
     <!-- JS principal do site (defer = carrega depois do HTML) -->
@@ -82,8 +88,30 @@
         </nav>
     </header>
 
-    <!-- Área principal (vazia, pode ser preenchida futuramente) -->
-    <main></main>
+    <main>
+        <section id="hero" class="glass-container">
+            <div class="welcome-text">
+                <h1>Olá, Heitor!</h1>
+                <p>Seu hub de estudos e projetos da EETIPF.</p>
+            </div>
+            <div id="weather-widget" class="weather-box">
+                <p>Carregando clima da escola...</p>
+            </div>
+        </section>
+    
+        <section id="cards-container" class="grid-section">
+            <h2 class="title-retro">Meus Projetos</h2>
+            <div class="cards-grid">
+                <div class="card">
+                    <div class="card-tag">Web</div>
+                    <h3>Jogo da Velha</h3>
+                    <p>Projeto de lógica com JavaScript puro.</p>
+                    <a href="https://heitorsouzasoares2025.github.io/Jogo-da-Velha/" target="_blank"
+                        class="btn-retro">Abrir</a>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <!-- ==================== RODAPÉ ==================== -->
     <footer>
