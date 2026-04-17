@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HeitorSS | Meus Projetos</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/root.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/menu.css">
+    <link rel="stylesheet" href="css/hero.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <script defer src="js/menu.js"></script>
+    <script defer src="js/particles_config.js"></script>
+</head>
+
+<body>
+    <canvas id="particles"></canvas>
+
+    <header class="header">
+        <nav class="nav">
+            <a href="index.html" class="logo">HeitorSS</a>
+            <button class="hamburguer" aria-label="Menu"><span></span></button>
+            <ul class="nav-list">
+                <li><a href="index.html">Início</a></li>
+                <li class="dropdown">
+                    <a href="#">Atividades</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="projetos.html" style="color: #00ff7f; font-weight: bold;">Página de Projetos</a>
+                        </li>
+                
+                        <li>
+                            <a href="https://drive.google.com/drive/folders/1LL6l6XoXd9-YVU5_PLewGvvCvMdS0h8O?usp=drive_link"
+                                target="_blank" rel="noopener noreferrer">Html e Css</a>
+                        </li>
+                        <li>
+                            <a href="https://drive.google.com/drive/folders/1zPRLdQ1I1BKVwmNuQ0gTp_elf0p44a7t?usp=drive_link"
+                                target="_blank" rel="noopener noreferrer">Programação Web</a>
+                        </li>
+                        <li>
+                            <a href="https://drive.google.com/drive/folders/12LmqHrkvAjQuMaIHPnSUoVoJ_ao_UeqX?usp=drive_link"
+                                target="_blank" rel="noopener noreferrer">Lógica DP 2</a>
+                        </li>
+                        <li>
+                            <a href="https://drive.google.com/drive/folders/1gd-kmtQkbzxY_TovyuV1MWBOTUQKLWuR?usp=drive_link"
+                                target="_blank" rel="noopener noreferrer">Poo/Java</a>
+                        </li>
+                </ul>
+                <li><a href="https://heitorsouzasoares2025.github.io/Portifolio/" target="_blank">Quem sou Eu</a></li>
+                <div id="clima-container" class="clima-top">
+                    <span id="temp">--°C EETIPF</span>
+                    <img id="clima-icon" src="" alt="Clima" style="display: none;">
+                </div>
+                <li><a href="mailto:heitorinformaticasala09@gmail.com">Contato</a></li>
+                
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="projetos-section">
+            <h1 class="title-retro">Meus Projetos</h1>
+    
+            <div class="grid-projetos">
+                <div class="projeto-card glass-container">
+                    <div class="card-image" style="background-image: url('https://picsum.photos/id/180/600/400');"></div>
+                    <div class="card-overlay"></div>
+                
+                    <div class="card-content">
+                        <span class="tag">FORMULARIO</span>
+                        <h3><span>📝</span> Formulario PHP</h3>
+                        <div class="detalhamento">
+                            <p>Formulário com salvamento em banco de dados local MySql com interface visual.</p>
+                            <ul>
+                                <li>⚡ Manipulação de PHP e SQL</li>
+                                <li>⚡ CSS completo</li>
+                                <li>⚡ Salvmento local</li>
+                            </ul>
+                        </div>
+                        <a href="https://heitorsouzasoares2025.github.io/Jogo-da-Velha/" target="_blank" class="btn-view">LANÇAR
+                            PROJETO</a>
+                    </div>
+                </div>
+                <div class="projeto-card glass-container">
+                    <div class="card-image" style="background-image: url('https://picsum.photos/id/180/600/400');"></div>
+                    <div class="card-overlay"></div>
+
+                    <div class="card-content">
+                        <span class="tag">GAME DEV</span>
+                        <h3><span>🎮</span> Jogo da Velha</h3>
+                        <div class="detalhamento">
+                            <p>Lógica de matrizes e detecção de vitória em tempo real com interface responsiva.</p>
+                            <ul>
+                                <li>⚡ Manipulação de DOM</li>
+                                <li>⚡ CSS Grid & Flexbox</li>
+                                <li>⚡ Score System</li>
+                            </ul>
+                        </div>
+                        <a href="https://heitorsouzasoares2025.github.io/Jogo-da-Velha/" target="_blank"
+                            class="btn-view">LANÇAR PROJETO</a>
+                    </div>
+                </div>
+    
+                <div class="projeto-card glass-container">
+                    <div class="card-image" style="background-image: url('https://picsum.photos/id/96/600/400');"></div>
+                    <div class="card-overlay"></div>
+    
+                    <div class="card-content">
+                        <span class="tag">GAME DEV</span>
+                        <h3><span>🎯</span> Tiro ao Alvo</h3>
+                        <div class="detalhamento">
+                            <p>Mini-game focado em precisão e cálculo de coordenadas no Canvas/DOM.</p>
+                            <ul>
+                                <li>⚡ Event Listeners</li>
+                                <li>⚡ Math.random Logic</li>
+                                <li>⚡ Animações CSS</li>
+                            </ul>
+                        </div>
+                        <a href="https://heitorsouzasoares2025.github.io/jogo/" target="_blank" class="btn-view">LANÇAR
+                            PROJETO</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Heitor Souza Soares © 2025</p>
+    </footer>
+</body>
+
+</html>

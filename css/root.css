@@ -1,0 +1,83 @@
+
+@keyframes pulse {
+    0% {
+        background: radial-gradient(circle at center, #001a1a, #000010, #000000);
+    }
+    100% {
+        background: radial-gradient(circle at center, #002b2b, #000020, #000000);
+    }
+}
+
+@keyframes blink {
+
+    0%,
+    50%,
+    100% {
+        border-color: #00ff7f;
+    }
+    25%,
+    75% {
+        border-color: transparent;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes floating {
+
+    0%,
+    100% {
+        transform: translateY(0) scale(1.2);
+    }
+    50% {
+        transform: translateY(-10px) scale(1.2);
+    }
+}
+
+@keyframes scan {
+    0% {
+        top: -100%;
+    }
+    100% {
+        top: 100%;
+    }
+}
+
+@keyframes glitch-anim {
+    0% {
+        transform: translate(0);
+    }
+    20% {
+        transform: translate(-2px, 2px);
+    }
+    40% {
+        transform: translate(-2px, -2px);
+    }
+    60% {
+        transform: translate(2px, 2px);
+    }
+    80% {
+        transform: translate(2px, -2px);
+    }
+    100% {
+        transform: translate(0);
+    }
+}
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+    to {
+        width: 155px;
+    }
+}

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Downloads | HeitorSS</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <link rel="stylesheet" href="css/root.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/menu.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/downloads.css">
+
+    <script defer src="js/menu.js"></script>
+    <script defer src="js/particles_config.js"></script>
+    <script defer src="js/clima.js"></script>
+</head>
+
+<body>
+    <canvas id="particles"></canvas>
+
+    <header class="header">
+        <nav class="nav">
+            <a class="logo">HeitorSS</a>
+    
+            <button class="hamburguer" aria-label="Menu"><span></span></button>
+    
+            <ul class="nav-list">
+                <li><a href="index.html">Início</a></li>
+                <li class="dropdown">
+                    <a href="#">Atividades</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="projetos.html" style="color: #00ff7f; font-weight: bold;">Página de Projetos</a>
+                        </li>
+    
+                        <li>
+                            <a href="https://drive.google.com/drive/folders/1LL6l6XoXd9-YVU5_PLewGvvCvMdS0h8O?usp=drive_link"
+                                target="_blank" rel="noopener noreferrer">Html e Css</a>
+                        </li>
+                        <li>
+                            <a href="https://drive.google.com/drive/folders/1zPRLdQ1I1BKVwmNuQ0gTp_elf0p44a7t?usp=drive_link"
+                                target="_blank" rel="noopener noreferrer">Programação Web</a>
+                        </li>
+                        <li>
+                            <a href="https://drive.google.com/drive/folders/12LmqHrkvAjQuMaIHPnSUoVoJ_ao_UeqX?usp=drive_link"
+                                target="_blank" rel="noopener noreferrer">Lógica DP 2</a>
+                        </li>
+                        <li>
+                            <a href="https://drive.google.com/drive/folders/1gd-kmtQkbzxY_TovyuV1MWBOTUQKLWuR?usp=drive_link"
+                                target="_blank" rel="noopener noreferrer">Poo/Java</a>
+                        </li>
+    
+                        <a href="downloads.html" class="link-card neon-azul">
+                            <span class="emoji-icon">📥</span>
+                            <span>CENTRAL DE DOWNLOADS</span>
+                        </a>
+                    </ul>
+                </li>
+                <li><a href="https://alisonfdn.epizy.com/" target="_blank" rel="noopener noreferrer">Site do Epizy</a>
+                </li>
+                <li><a href="https://noticias.r7.com/minas-gerais/balanco-geral-mg/video/profissoes-do-futuro-oferta-por-ensino-medio-integrado-a-educacao-profissional-cresce-em-mg-25082025/"
+                        target="_blank" rel="noopener noreferrer">Reportagem EETIPF</a></li>
+                <div id="clima-container" class="clima-top">
+                    <span id="temp">--°C EETIPF</span>
+                    <img id="clima-icon" src="" alt="Clima" style="display: none;">
+                </div>
+                <li><a href="https://heitorsouzasoares2025.github.io/site-horarios/" target="_blank"
+                        rel="noopener noreferrer">Horário EETIPF</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container-downloads" style="margin-top: 120px; position: relative; z-index: 10;">
+        <h2 class="titulo-sessao">--- DOWNLOAD CENTER ---</h2>
+
+        <div class="search-bar">
+            <input type="text" id="filterFiles" placeholder="DIGITE O NOME DO ARQUIVO..." onkeyup="filtrarArquivos()">
+        </div>
+
+        <div class="category-filters">
+            <button class="btn-filter active" onclick="filtrarCategoria('todos')">TODOS</button>
+            <button class="btn-filter" onclick="filtrarCategoria('t.i')">T.I</button>
+            <button class="btn-filter" onclick="filtrarCategoria('social')">SOCIAL</button>
+            <button class="btn-filter" onclick="filtrarCategoria('web')">WEB</button>
+            <button class="btn-filter" onclick="filtrarCategoria('jogos')">JOGOS</button>
+        </div>
+
+        <section class="lista-downloads" id="listaArquivos">
+        </section>
+    </main>
+
+    <div id="adminModal" class="modal-admin">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2 class="titulo-sessao">ACESSO RESTRITO</h2>
+    
+            <div id="loginArea">
+                <input type="password" id="adminPass" placeholder="SENHA DE ACESSO">
+                <button onclick="verificarSenha()" class="btn-dl">ENTRAR</button>
+            </div>
+    
+            <div id="adminForm" style="display: none;">
+                <input type="text" id="nomeArq" placeholder="Nome do Arquivo">
+                <select id="catArq">
+                    <option value="logica">Lógica</option>
+                    <option value="social">Social</option>
+                    <option value="web">Web</option>
+                    <option value="jogos">Jogos</option>
+                </select>
+                <input type="text" id="tamArq" placeholder="Ex: 5 MB">
+    
+                <input type="url" id="linkArq" placeholder="Link do Drive">
+    
+                <div style="display: flex; align-items: center; margin: 15px 0;">
+                    <hr style="flex: 1; border: 0; border-top: 1px solid #00ff7f; opacity: 0.3;">
+                    <span style="padding: 0 10px; color: #00ff7f; font-size: 10px; font-family: 'Press Start 2P';">OU</span>
+                    <hr style="flex: 1; border: 0; border-top: 1px solid #00ff7f; opacity: 0.3;">
+                </div>
+    
+                <label for="fileInput"
+                    style="color: #00ff7f; font-size: 10px; display: block; margin-bottom: 5px; text-align: left;">UPLOAD
+                    DIRETO:</label>
+                <input type="file" id="fileInput"
+                    style="background: rgba(0, 255, 127, 0.1); border: 1px dashed #00ff7f; padding: 10px; color: white; cursor: pointer; width: 100%; box-sizing: border-box;">
+    
+                <button onclick="salvarNoBanco()" class="btn-dl" style="margin-top: 20px;">POSTAR ARQUIVO</button>
+            </div>
+        </div>
+    </div>
+
+    <script defer src="js/menu.js"></script>
+    <script defer src="js/downloads.js"></script>
+</body>
+
+</html>

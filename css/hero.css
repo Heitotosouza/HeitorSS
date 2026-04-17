@@ -1,0 +1,176 @@
+
+.grid-projetos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 40px;
+    padding: 50px 5%;
+}
+
+.projeto-card {
+    position: relative;
+    height: 450px;
+    border-radius: 15px;
+    overflow: hidden;
+    background: #050505;
+    border: 1px solid rgba(0, 255, 127, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.projeto-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(800px circle at var(--x) var(--y),
+            rgba(0, 255, 127, 0.4),
+            transparent 25%);
+    z-index: 2;
+    opacity: 0;
+    transition: opacity 0.5s;
+    pointer-events: none;
+}
+
+.projeto-card:hover::before {
+    opacity: 1;
+}
+
+.projeto-card:hover {
+    border-color: #00ff7f;
+    box-shadow: 0 0 20px rgba(0, 255, 127, 0.2);
+}
+
+.card-image {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    filter: grayscale(100%) brightness(0.1);
+    transition: filter 0.5s;
+    z-index: 1;
+}
+
+.projeto-card:hover .card-image {
+    filter: grayscale(0%) brightness(0.4);
+}
+
+.projeto-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 80%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 1) 10%, transparent);
+    z-index: 2;
+    pointer-events: none;
+}
+
+.card-content {
+    position: relative;
+    z-index: 3;
+    padding: 25px;
+    transform: translateY(150px);
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.projeto-card:hover .card-content {
+    transform: translateY(0) !important;
+}
+
+.projeto-card h3 {
+    margin: 15px 0;
+    font-size: 1.2rem;
+    color: #00ff7f;
+    text-shadow: 0 0 10px rgba(0, 255, 127, 0.5);
+    font-family: 'Press Start 2P', cursive;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.icon-animado {
+    display: inline-block;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    will-change: transform;
+}
+
+.tag {
+    font-size: 0.6rem;
+    background: #00ff7f;
+    color: #000;
+    padding: 3px 8px;
+    font-family: 'Press Start 2P';
+    border-radius: 3px;
+}
+
+.detalhamento {
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.projeto-card:hover .detalhamento {
+    opacity: 1 !important;
+}
+
+.detalhamento p,
+.detalhamento li {
+    color: #ffffff !important;
+    font-size: 0.8rem;
+    text-shadow: 1px 1px 3px #000;
+    margin-bottom: 5px;
+}
+
+.detalhamento ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 15px;
+}
+
+.projeto-card:hover .detalhamento li {
+    animation: slideIn 0.4s ease forwards;
+    opacity: 0;
+}
+
+.projeto-card:hover .detalhamento li:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.projeto-card:hover .detalhamento li:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.projeto-card:hover .detalhamento li:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-15px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.btn-view {
+    display: block;
+    text-align: center;
+    background: transparent;
+    border: 1px solid #00ff7f;
+    color: #00ff7f;
+    padding: 12px;
+    font-family: 'Press Start 2P';
+    font-size: 0.7rem;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.btn-view:hover {
+    background: #00ff7f;
+    color: #000;
+    box-shadow: 0 0 15px #00ff7f;
+}

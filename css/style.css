@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* ===================== RESET E BASE ===================== */
 html {
   height: 100%; /* Garante que o <html> ocupe toda a altura da tela */
@@ -234,3 +235,10 @@ footer {
   font-size: 14px;
   backdrop-filter: blur(4px);
 }
+=======
+@import "downloads.css";
+@import "hero.css";
+@import "layout.css";
+@import "menu.css";
+@import "root.css";
+>>>>>>> mudancas-no-site
