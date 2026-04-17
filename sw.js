@@ -1,39 +1,37 @@
-// ------------------------------------------------------------
-// Evento de INSTALAÇÃO do Service Worker
-// ------------------------------------------------------------
+const CACHE_NAME = 'site-cache-v1';
+const ASSETS_TO_CACHE = [
+  '/',
+  '/index.html',
+  '/style.css',
+  '/css/root.css',
+  '/css/layout.css',
+  '/css/menu.css',
+  '/css/style.css',
+  '/css/downloads.css',
+  '/js/menu.js',
+  '/js/clima.js',
+  '/js/downloads.js',
+  '/js/script2.js',
+  '/js/particles_config.js',
+  '/icons/icon-192.png',
+  '/icons/icon-512.png'
+];
+
 self.addEventListener('install', event => {
-  // O event.waitUntil() garante que o SW só conclua a instalação
-  // depois de terminar de abrir o cache e adicionar todos os arquivos
   event.waitUntil(
-    caches.open('site-cache') // Cria (ou abre) um cache chamado "site-cache"
-      .then(cache => 
-        // Adiciona todos os arquivos listados ao cache
-        cache.addAll([
-          '/',                   // Raiz do site
-          '/index.html',         // Página principal
-          '/styles.css',         // Arquivo CSS
-          '/script.js',          // Arquivo JS
-          '/icons/icon-192.png', // Ícone pequeno do PWA
-          '/icons/icon-512.png'  // Ícone maior do PWA
-        ])
-      )
+    caches.open(CACHE_NAME)
+      .then(cache => {
+        console.log('Instalando cache de ativos...');
+        return cache.addAll(ASSETS_TO_CACHE);
+      })
   );
-  // Dica: se você alterar os arquivos, mude também o nome do cache
-  // (por exemplo, de 'site-cache' para 'site-cache-v2')
-  // para forçar o navegador a baixar a nova versão.
 });
 
-// ------------------------------------------------------------
-// Evento de FETCH (busca de recursos)
-// ------------------------------------------------------------
 self.addEventListener('fetch', event => {
-  // Intercepta todas as requisições feitas pelo app/site
   event.respondWith(
-    caches.match(event.request) // Verifica se o recurso já está no cache
-      .then(response => 
-        // Se o recurso está no cache, usa ele
-        // Se não, faz o fetch normal pela internet
-        response || fetch(event.request)
-      )
+    caches.match(event.request)
+      .then(response => {
+        return response || fetch(event.request);
+      })
   );
 });

@@ -7,6 +7,7 @@
     <title>Downloads | HeitorSS</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <link rel="stylesheet" href="css/root.css">
     <link rel="stylesheet" href="css/layout.css">
     <link rel="stylesheet" href="css/menu.css">
@@ -23,7 +24,7 @@
 
     <header class="header">
         <nav class="nav">
-            <a href="https://www.instagram.com/" class="logo">HeitorSS</a>
+            <a class="logo">HeitorSS</a>
     
             <button class="hamburguer" aria-label="Menu"><span></span></button>
     
@@ -81,75 +82,57 @@
 
         <div class="category-filters">
             <button class="btn-filter active" onclick="filtrarCategoria('todos')">TODOS</button>
-            <button class="btn-filter" onclick="filtrarCategoria('lógica')">LÓGICA</button>
+            <button class="btn-filter" onclick="filtrarCategoria('t.i')">T.I</button>
             <button class="btn-filter" onclick="filtrarCategoria('social')">SOCIAL</button>
             <button class="btn-filter" onclick="filtrarCategoria('web')">WEB</button>
+            <button class="btn-filter" onclick="filtrarCategoria('jogos')">JOGOS</button>
         </div>
 
         <section class="lista-downloads" id="listaArquivos">
-            <div class="download-item">
-                <div class="file-info">
-                    <span class="file-icon">📁</span>
-                    <div>
-                        <h3>Apostila_Logica_DP2.zip</h3>
-                        <p>Categoria: Lógica | Tamanho: <span class="file-size"
-                                data-url="arquivos/Apostila_Logica_DP2.zip">Carregando...</span></p>
-                    </div>
-                </div>
-                <a href="arquivos/Apostila_Logica_DP2.zip" class="btn-dl">BAIXAR</a>
-            </div>
-
-            <div class="download-item">
-                <div class="file-info">
-                    <span class="file-icon">📸</span>
-                    <div>
-                        <h3>Fotos_Evento_EETIPF.rar</h3>
-                        <p>Categoria: Social | Tamanho: 158MB</p>
-                    </div>
-                </div>
-                <a href="#" class="btn-dl">BAIXAR</a>
-            </div>
         </section>
     </main>
 
-    <script>
-        let categoriaAtual = 'todos';
+    <div id="adminModal" class="modal-admin">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2 class="titulo-sessao">ACESSO RESTRITO</h2>
+    
+            <div id="loginArea">
+                <input type="password" id="adminPass" placeholder="SENHA DE ACESSO">
+                <button onclick="verificarSenha()" class="btn-dl">ENTRAR</button>
+            </div>
+    
+            <div id="adminForm" style="display: none;">
+                <input type="text" id="nomeArq" placeholder="Nome do Arquivo">
+                <select id="catArq">
+                    <option value="logica">Lógica</option>
+                    <option value="social">Social</option>
+                    <option value="web">Web</option>
+                    <option value="jogos">Jogos</option>
+                </select>
+                <input type="text" id="tamArq" placeholder="Ex: 5 MB">
+    
+                <input type="url" id="linkArq" placeholder="Link do Drive">
+    
+                <div style="display: flex; align-items: center; margin: 15px 0;">
+                    <hr style="flex: 1; border: 0; border-top: 1px solid #00ff7f; opacity: 0.3;">
+                    <span style="padding: 0 10px; color: #00ff7f; font-size: 10px; font-family: 'Press Start 2P';">OU</span>
+                    <hr style="flex: 1; border: 0; border-top: 1px solid #00ff7f; opacity: 0.3;">
+                </div>
+    
+                <label for="fileInput"
+                    style="color: #00ff7f; font-size: 10px; display: block; margin-bottom: 5px; text-align: left;">UPLOAD
+                    DIRETO:</label>
+                <input type="file" id="fileInput"
+                    style="background: rgba(0, 255, 127, 0.1); border: 1px dashed #00ff7f; padding: 10px; color: white; cursor: pointer; width: 100%; box-sizing: border-box;">
+    
+                <button onclick="salvarNoBanco()" class="btn-dl" style="margin-top: 20px;">POSTAR ARQUIVO</button>
+            </div>
+        </div>
+    </div>
 
-            function filtrarCategoria(categoria) {
-                categoriaAtual = categoria.toLowerCase();
-
-                const botoes = document.querySelectorAll('.btn-filter');
-                botoes.forEach(btn => {
-                    btn.classList.remove('active');
-                    if (btn.innerText.toLowerCase() === categoriaAtual) btn.classList.add('active');
-                });
-
-                executarFiltroGeral();
-            }
-
-            function filtrarArquivos() {
-                executarFiltroGeral();
-            }
-
-            function executarFiltroGeral() {
-                let input = document.getElementById('filterFiles').value.toLowerCase();
-                let items = document.getElementsByClassName('download-item');
-
-                for (let i = 0; i < items.length; i++) {
-                    let titulo = items[i].querySelector('h3').innerText.toLowerCase();
-                    let categoriaDoItem = items[i].querySelector('p').innerText.toLowerCase();
-                    let matchTexto = titulo.includes(input);
-                    let matchCategoria = (categoriaAtual === 'todos' || categoriaDoItem.includes(categoriaAtual));
-                    if (matchTexto && matchCategoria) {
-                        items[i].style.display = "";
-                    } else {
-                        items[i].style.display = "none";
-                    }
-                }
-            }
-
-            window.onload = renderizarLista;
-    </script>
+    <script defer src="js/menu.js"></script>
+    <script defer src="js/downloads.js"></script>
 </body>
 
 </html>
