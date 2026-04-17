@@ -28,6 +28,7 @@
             <button class="hamburguer" aria-label="Menu"><span></span></button>
     
             <ul class="nav-list">
+                <li><a href="index.html">Início</a></li>
                 <li class="dropdown">
                     <a href="#">Atividades</a>
                     <ul class="dropdown-menu">
@@ -57,9 +58,6 @@
                         </a>
                     </ul>
                 </li>
-    
-                <li><a href="https://heitorsouzasoares2025.github.io/Portifolio/" target="_blank"
-                        rel="noopener noreferrer">Quem sou Eu</a></li>
                 <li><a href="https://alisonfdn.epizy.com/" target="_blank" rel="noopener noreferrer">Site do Epizy</a>
                 </li>
                 <li><a href="https://noticias.r7.com/minas-gerais/balanco-geral-mg/video/profissoes-do-futuro-oferta-por-ensino-medio-integrado-a-educacao-profissional-cresce-em-mg-25082025/"
@@ -70,7 +68,6 @@
                 </div>
                 <li><a href="https://heitorsouzasoares2025.github.io/site-horarios/" target="_blank"
                         rel="noopener noreferrer">Horário EETIPF</a></li>
-                <li><a href="mailto:heitorinformaticasala09@gmail.com" target="_blank">Contato</a></li>
             </ul>
         </nav>
     </header>
@@ -82,16 +79,24 @@
             <input type="text" id="filterFiles" placeholder="DIGITE O NOME DO ARQUIVO..." onkeyup="filtrarArquivos()">
         </div>
 
+        <div class="category-filters">
+            <button class="btn-filter active" onclick="filtrarCategoria('todos')">TODOS</button>
+            <button class="btn-filter" onclick="filtrarCategoria('lógica')">LÓGICA</button>
+            <button class="btn-filter" onclick="filtrarCategoria('social')">SOCIAL</button>
+            <button class="btn-filter" onclick="filtrarCategoria('web')">WEB</button>
+        </div>
+
         <section class="lista-downloads" id="listaArquivos">
             <div class="download-item">
                 <div class="file-info">
                     <span class="file-icon">📁</span>
                     <div>
                         <h3>Apostila_Logica_DP2.zip</h3>
-                        <p>Categoria: Lógica | Tamanho: 4.5MB</p>
+                        <p>Categoria: Lógica | Tamanho: <span class="file-size"
+                                data-url="arquivos/Apostila_Logica_DP2.zip">Carregando...</span></p>
                     </div>
                 </div>
-                <a href="#" class="btn-dl">BAIXAR</a>
+                <a href="arquivos/Apostila_Logica_DP2.zip" class="btn-dl">BAIXAR</a>
             </div>
 
             <div class="download-item">
@@ -108,19 +113,42 @@
     </main>
 
     <script>
-        function filtrarArquivos() {
-            let input = document.getElementById('filterFiles').value.toLowerCase();
-            let items = document.getElementsByClassName('download-item');
+        let categoriaAtual = 'todos';
 
-            for (let i = 0; i < items.length; i++) {
-                let h3 = items[i].getElementsByTagName('h3')[0];
-                if (h3.innerHTML.toLowerCase().includes(input)) {
-                    items[i].style.display = "";
-                } else {
-                    items[i].style.display = "none";
+            function filtrarCategoria(categoria) {
+                categoriaAtual = categoria.toLowerCase();
+
+                const botoes = document.querySelectorAll('.btn-filter');
+                botoes.forEach(btn => {
+                    btn.classList.remove('active');
+                    if (btn.innerText.toLowerCase() === categoriaAtual) btn.classList.add('active');
+                });
+
+                executarFiltroGeral();
+            }
+
+            function filtrarArquivos() {
+                executarFiltroGeral();
+            }
+
+            function executarFiltroGeral() {
+                let input = document.getElementById('filterFiles').value.toLowerCase();
+                let items = document.getElementsByClassName('download-item');
+
+                for (let i = 0; i < items.length; i++) {
+                    let titulo = items[i].querySelector('h3').innerText.toLowerCase();
+                    let categoriaDoItem = items[i].querySelector('p').innerText.toLowerCase();
+                    let matchTexto = titulo.includes(input);
+                    let matchCategoria = (categoriaAtual === 'todos' || categoriaDoItem.includes(categoriaAtual));
+                    if (matchTexto && matchCategoria) {
+                        items[i].style.display = "";
+                    } else {
+                        items[i].style.display = "none";
+                    }
                 }
             }
-        }
+
+            window.onload = renderizarLista;
     </script>
 </body>
 
