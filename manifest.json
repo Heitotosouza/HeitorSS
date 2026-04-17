@@ -1,0 +1,37 @@
+{
+  // "name": Nome completo do app PWA (aparece na tela inicial e em instalações)
+  "name": "Meu Site Tecnológico",
+
+  // "short_name": Nome curto (aparece debaixo do ícone do app na tela inicial)
+  "short_name": "Meu Site",
+
+  // "start_url": Página inicial do app quando aberto como PWA
+  // "." significa que ele abre a raiz do site (index.html)
+  "start_url": ".",
+
+  // "display": Define como o app será exibido:
+  // "standalone" faz o PWA parecer um app nativo (sem barra de endereço do navegador)
+  "display": "standalone",
+
+  // "background_color": Cor de fundo usada na tela de carregamento do PWA
+  "background_color": "#0f172a",
+
+  // "theme_color": Cor do tema, usada na barra de status do navegador e Android
+  "theme_color": "#2563eb",
+
+  // "icons": Lista dos ícones usados pelo PWA em diferentes tamanhos
+  "icons": [
+    {
+      // Ícone menor (aplicativos Android normalmente usam 192x192)
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      // Ícone maior (para telas de alta resolução, 512x512 é padrão do PWA)
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

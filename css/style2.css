@@ -1,0 +1,217 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+footer {
+  background-color: seagreen;
+  color: white;
+  padding: 12px 0;
+  text-align: center;
+}
+
+.wrapper {
+  width: 100%;
+  margin: 0 auto;
+  z-index: 1;
+  padding-top: 65px; /* EspaÃ§o para navbar fixa */
+}
+
+main {
+  display: block;
+  background-color: #000;
+}
+.container {
+  width: 100%;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+section.module p {
+  margin-bottom: 40px;
+}
+
+section.module h2 {
+  margin-bottom: 40px;
+  font-size: 30px;
+}
+
+section.module.content {
+  padding: 40px 20px;
+  background: radial-gradient(rgb(96, 0, 250), rgb(157, 7, 245));
+}
+
+h2 {
+  color: rgb(0, 0, 0);
+}
+
+section.module.parallax {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+section.module.parallax::after {
+  content: "";
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: 8;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, #000 100%);
+}
+
+section.module h1 {
+  color: white;
+  font-size: 3em;
+  position: relative;
+  z-index: 9;
+}
+
+/* Imagens do Parallax */
+section.module.parallax-1 {
+  background-image: url("/img/sungjinwoo.gif.gif");
+}
+
+section.module.parallax-2 {
+  background-image: url("/img/igris.gif.gif");
+}
+
+section.module.parallax-3 {
+  background-image: url("/img/beru.gif.gif");
+}
+
+section.module.parallax-4 {
+  background-image: url("/img/belion.jpeg.jpeg");
+}
+
+section.module.parallax-5 {
+  background-image: url("/img/tank.jpg.jpeg");
+}
+
+section.module.parallax-6 {
+  background-image: url("/img/iron.gif.gif");
+}
+
+section.module.parallax-7 {
+  background-image: url("/img/tusk.jpg.jpg");
+}
+
+/* Navbar glassmorphism roxo */
+.main-nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: rgba( 75, 0, 130, 0.85); /* Mais opaco para melhor visibilidade */
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+  z-index: 9999;
+  padding: 28px 0;
+  box-shadow: 0 4px 20px rgba(75, 0, 130, 0.6);
+  font-family: "Open Sans", sans-serif;
+}
+
+/* Estilo base para o menu - desktop */
+.main-nav ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 28px;
+}
+
+/* Links do menu */
+.main-nav ul li a {
+  color: #e0d7f7;
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  font-size: 16px;
+  padding: 8px 14px;
+  border-radius: 10px;
+  transition: background-color 0.35s ease, color 0.35s ease;
+}
+
+.main-nav ul li a:hover,
+.main-nav ul li a:focus {
+  background-color: rgba(147, 112, 219, 0.85);
+  color: #fff;
+  outline: none;
+}
+
+/* Ícone hamburguer escondido por padrão (desktop) */
+.menu-toggle {
+  display: none;
+  font-size: 30px;
+  cursor: pointer;
+  color: #e0d7f7;
+  position: fixed;
+  top: 8px;
+  right: 15px;
+  z-index: 10000;
+  user-select: none;
+}
+
+/* ----- Responsividade ----- */
+@media (max-width: 768px) {
+  /* Esconde o menu horizontal padrão */
+  .main-nav ul {
+    display: none;
+  }
+
+  /* Exibe o menu hamburguer */
+  .menu-toggle {
+    display: block;
+  }
+
+  /* Menu vertical escondido inicialmente */
+  #nav-list {
+    display: none;
+    flex-direction: column;
+    position: fixed;
+    top: 56px; /* abaixo da navbar */
+    right: 10px;
+    background-color: rgba(75, 0, 130, 0.95);
+    border-radius: 8px;
+    width: 180px;
+    padding: 10px 0;
+    box-shadow: 0 4px 20px rgba(75, 0, 130, 0.7);
+    z-index: 9999;
+  }
+
+  /* Exibe o menu quando ativo */
+  #nav-list.active {
+    display: flex;
+  }
+
+  /* Ajusta os itens do menu no modo vertical */
+  #nav-list li {
+    margin: 8px 0;
+    text-align: center;
+  }
+
+  #nav-list li a {
+    display: block;
+    padding: 10px 0;
+    font-size: 18px;
+  }
+}
+

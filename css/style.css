@@ -1,0 +1,236 @@
+/* ===================== RESET E BASE ===================== */
+html {
+  height: 100%; /* Garante que o <html> ocupe toda a altura da tela */
+}
+
+body {
+  margin: 0; /* Remove margens padrão do navegador */
+  font-family: sans-serif; /* Define fonte padrão sem serifa */
+  min-height: 100vh; /* Faz o body ocupar pelo menos toda a altura da tela */
+
+  /* Fundo com gradiente radial animado (efeito tecnológico) */
+  background: radial-gradient(circle at center, #001a1a, #000010, #000000);
+  animation: pulse 6s infinite alternate; /* Animação suave do fundo */
+}
+
+/* Animação que faz o fundo "pulsar" entre tons diferentes */
+@keyframes pulse {
+  0% {
+    background: radial-gradient(circle at center, #001a1a, #000010, #000000);
+  }
+  100% {
+    background: radial-gradient(circle at center, #002b2b, #000020, #000000);
+  }
+}
+
+main {
+  min-height: 100vh; /* Faz o <main> ocupar toda a altura da tela */
+}
+
+/* ===================== HEADER / NAVBAR ===================== */
+.header {
+  position: relative;
+  z-index: 1000; /* Mantém o header acima do fundo e partículas */
+}
+
+.nav {
+  max-width: 1280px; /* Limita a largura da navbar */
+  margin: 0 auto; /* Centraliza a navbar */
+  display: flex; /* Organiza elementos em linha */
+  justify-content: space-between; /* Espaço entre logo e links */
+  align-items: center; /* Centraliza verticalmente */
+  padding: 10 16px;
+
+  /* Efeito de vidro (glassmorphism) */
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  position: relative;
+  z-index: 1000;
+}
+
+/* Estilo da logo (nome do site) */
+.logo {
+  text-decoration: none; /* Remove sublinhado */
+  font-family: 'Press Start 2P', sans-serif; /* Fonte retrô estilo gamer */
+  font-size: 2rem;
+  color: #00ff7f; /* Verde neon */
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Sombra para destaque */
+  white-space: nowrap; /* Evita quebra de linha */
+  border-right: 2px solid #00ff7f; /* Simula o cursor piscando */
+  overflow: hidden;
+  animation: blink 1s step-start infinite; /* Faz o "cursor" piscar */
+}
+
+/* Animação do cursor piscando na logo */
+@keyframes blink {
+  0%, 50%, 100% { border-color: #00ff7f; }
+  25%, 75% { border-color: transparent; }
+}
+
+/* Lista principal do menu de navegação */
+.nav-list {
+  display: flex; /* Organiza os links em linha */
+  gap: 24px; /* Espaçamento entre os itens */
+  list-style: none; /* Remove os marcadores da lista */
+}
+
+/* Links do menu */
+.nav-list li a {
+  color: white;
+  font-size: 16px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: 0.3s ease; /* Transição suave nos efeitos */
+}
+
+/* ===================== HOVER UNIFORME NA NAVBAR ===================== */
+.nav-list li a:hover,
+.dropdown-menu a:hover {
+  color: #00ff36; /* Verde claro neon */
+  text-shadow: 0 0 8px #00ff36, 0 0 15px #00ff36; /* Brilho neon no texto */
+  background-color: rgba(0, 255, 56, 0.1); /* Fundo levemente iluminado */
+  box-shadow: 0 0 10px #00ff36, 0 0 20px #00ff36; /* Brilho neon no link */
+}
+
+/* ===================== DROPDOWN ===================== */
+.dropdown {
+  position: relative; /* Necessário para posicionar submenu */
+}
+
+/* Submenu (dropdown) */
+.dropdown-menu {
+  list-style: none;
+  display: none; /* Escondido por padrão */
+  position: absolute; /* Fica abaixo do item pai */
+  top: 100%;
+  left: 0;
+  min-width: 180px;
+  background: rgba(0, 0, 0, 0.6); /* Fundo transparente escuro */
+  backdrop-filter: blur(8px);
+  border-radius: 8px;
+  padding: 8px 0;
+  z-index: 1100;
+}
+
+/* Links dentro do dropdown */
+.dropdown-menu a {
+  display: block;
+  padding: 8px 16px;
+  color: white;
+  font-size: 14px;
+}
+
+/* Exibe o dropdown ao passar o mouse */
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+/* ===================== MENU HAMBÚRGUER ===================== */
+.hamburguer {
+  display: none; /* Só aparece no mobile */
+  width: 30px;
+  height: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  z-index: 1200;
+}
+
+/* Barras do botão hamburguer */
+.hamburguer span,
+.hamburguer::before,
+.hamburguer::after {
+  content: "";
+  display: block;
+  width: 30px;
+  height: 3px;
+  background: #fff; /* Cor branca */
+  border-radius: 2px;
+  position: absolute;
+  left: 0;
+  transition: 0.3s; /* Transição suave nas barras */
+}
+
+.hamburguer::before { top: 0; }
+.hamburguer span { top: 10px; }
+.hamburguer::after { top: 20px; }
+
+/* ===================== CANVAS DAS PARTÍCULAS ===================== */
+#particles {
+  position: fixed; /* Cobre toda a tela */
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 800; /* Atrás do menu */
+  pointer-events: none; /* Não bloqueia cliques */
+}
+
+/* ===================== MOBILE ===================== */
+@media (max-width: 768px) {
+  .hamburguer {
+    display: block; /* Exibe o botão */
+    position: relative;
+    z-index: 1500; /* Fica acima do menu */
+  }
+
+  .nav-list {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    flex-direction: column; /* Coloca itens em coluna */
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    clip-path: circle(0 at 90% -10%); /* Início fechado */
+    transition: 0.5s ease-in-out; /* Animação de abertura */
+    pointer-events: none;
+    gap: 24px;
+    z-index: 1100;
+  }
+
+  /* Menu ativo abre com efeito de "explosão circular" */
+  .nav.active .nav-list {
+    clip-path: circle(1500px at 90% -10%);
+    pointer-events: all;
+  }
+
+  .nav-list li a {
+    font-size: 24px;
+    text-align: center;
+  }
+
+  /* Dropdown no menu mobile */
+  .dropdown-menu {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+    border-radius: 8px;
+    padding: 8px 0;
+    z-index: 1200;
+  }
+
+  .dropdown.active .dropdown-menu {
+    display: flex; /* Exibe o submenu ao clicar */
+  }
+}
+
+/* ===================== FOOTER ===================== */
+footer {
+  background: rgba(0, 0, 0, 0.4);
+  color: #00ffc8; /* Verde ciano neon */
+  text-align: center;
+  padding: 15px 0;
+  font-size: 14px;
+  backdrop-filter: blur(4px);
+}
